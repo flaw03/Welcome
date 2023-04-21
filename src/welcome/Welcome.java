@@ -10,7 +10,7 @@ public class Welcome {
             msg.append("my friend");
         }
         else{
-            msg.append(nom);
+            msg.append(nom.substring(0, 1).toUpperCase()).append(nom.substring(1));
             if (nom.toUpperCase().equals(nom)){
                 msg.append(" !");
                 return msg.toString().toUpperCase();

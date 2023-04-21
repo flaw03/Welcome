@@ -8,9 +8,9 @@ class WelcomeTest {
 
     @Test
     void welcomeNom(){
-        assertEquals(Welcome.welcome("Assane"),"Hello, Assane");
-        assertEquals(Welcome.welcome("Noah"),"Hello, Noah");
-        assertEquals(Welcome.welcome("Jeremy"),"Hello, Jeremy");
+        assertEquals(Welcome.welcome("assane"),"Hello, Assane");
+        assertEquals(Welcome.welcome("noah"),"Hello, Noah");
+        assertEquals(Welcome.welcome("jeremy"),"Hello, Jeremy");
     }
 
     @Test
@@ -21,9 +21,11 @@ class WelcomeTest {
     }
 
     @Test
-    void pourquoituCris(){
+    void pourquoi_tu_Cris(){
         assertEquals(Welcome.welcome("ASSANE"),"HELLO, ASSANE !");
         assertEquals(Welcome.welcome("JEREMY"),"HELLO, JEREMY !");
         assertEquals(Welcome.welcome("NOAH"),"HELLO, NOAH !");
     }
+
+
 }
