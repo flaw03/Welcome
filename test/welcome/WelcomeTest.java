@@ -34,5 +34,12 @@ class WelcomeTest {
 
     }
 
+    @Test
+    void plusieur_nom(){
+        assertEquals(Welcome.welcome("amy,bob,jery"),"Hello, Amy, Bob, Jery");
+        assertEquals(Welcome.welcome("assane,jeremy,noah"),"Hello, Assane, Jeremy, Noah");
+
+    }
+
 
 }

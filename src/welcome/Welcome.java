@@ -25,9 +25,8 @@ public class Welcome {
     }
     private static void trouveNoms(StringBuilder msg, String chainedenom ){
         String[] noms = chainedenom.split(",");
-        ajouterNoms(msg, noms[0]);
-        if (noms.length >1){
-            ajouterNoms(msg,noms[1]);
+        for(int i = 0; i < noms.length ;i++){
+            ajouterNoms(msg,noms[i]);
         }
     }
 }
