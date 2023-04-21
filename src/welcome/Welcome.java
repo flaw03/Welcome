@@ -5,28 +5,36 @@ import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Trim;
 public class Welcome {
 
     public static String welcome(String nom) {;
-        StringBuilder msg = new StringBuilder("Hello");
+        StringBuilder msg1 = new StringBuilder("Hello");
+        StringBuilder msg2 = new StringBuilder("HELLO");
         if(nom == null || nom.trim().equals("")){
-            msg.append(", my friend");
+            msg1.append(", my friend");
         }
         else{
-            trouveNoms(msg ,nom);
-            if (nom.toUpperCase().equals(nom)){
-                msg.append(" !");
-                return msg.toString().toUpperCase();
-            }
+            trouveNoms(msg1,msg2 ,nom);
         }
-        return msg.toString();
+        if (msg1.length() <= 5 ){
+            return msg2.toString();
+        } else if (msg2.length() <= 7 ) {
+            return msg1.toString();
+        }else{
+            return msg1.toString() + ".AND " + msg2.toString();
+        }
     }
 
-    private static void ajouterNoms(StringBuilder msg , String nom){
-            msg.append(", ");
-            msg.append(nom.substring(0, 1).toUpperCase()).append(nom.substring(1));
+    private static void ajouterNoms(StringBuilder msg1 , String nom){
+            msg1.append(", ");
+            msg1.append(nom.substring(0, 1).toUpperCase()).append(nom.substring(1));
     }
-    private static void trouveNoms(StringBuilder msg, String chainedenom ){
+    private static void trouveNoms(StringBuilder msg1 ,StringBuilder msg2, String chainedenom ){
         String[] noms = chainedenom.split(",");
         for(int i = 0; i < noms.length ;i++){
-            ajouterNoms(msg,noms[i]);
+            if (noms[i].toUpperCase().equals(noms[i])) {
+                ajouterNoms(msg2, noms[i]);
+            } else {
+                ajouterNoms(msg1,noms[i]);
+            }
         }
+        msg2.append(" !");
     }
 }
