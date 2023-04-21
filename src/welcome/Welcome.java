@@ -11,6 +11,10 @@ public class Welcome {
         }
         else{
             msg.append(nom);
+            if (nom.toUpperCase().equals(nom)){
+                msg.append(" !");
+                return msg.toString().toUpperCase();
+            }
         }
         return msg.toString();
     }
