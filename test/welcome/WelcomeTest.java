@@ -27,5 +27,12 @@ class WelcomeTest {
         assertEquals(Welcome.welcome("NOAH"),"HELLO, NOAH !");
     }
 
+    @Test
+    void deux_nom(){
+        assertEquals(Welcome.welcome("assane,jeremy"),"Hello, Assane, Jeremy");
+        assertEquals(Welcome.welcome("amy,bob"),"Hello, Amy, Bob");
+
+    }
+
 
 }
