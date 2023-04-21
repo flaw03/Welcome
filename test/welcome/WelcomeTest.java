@@ -44,6 +44,8 @@ class WelcomeTest {
     @Test
     void cris_pas_cris(){
         assertEquals(Welcome.welcome("amy,BOB,Jerry"),"Hello, Amy, Jerry. AND HELLO, BOB !");
+        assertEquals(Welcome.welcome("amy,BOB,JERRY"),"Hello, Amy. AND HELLO, BOB, JERRY !");
+        assertEquals(Welcome.welcome("AMY,BOB,Jerry"),"Hello, Jerry. AND HELLO, AMY, BOB !");
     }
 
 }

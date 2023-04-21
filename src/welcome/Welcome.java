@@ -1,40 +1,45 @@
 package welcome;
 
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Trim;
 
 public class Welcome {
 
-    public static String welcome(String nom) {;
-        StringBuilder msg1 = new StringBuilder("Hello");
-        StringBuilder msg2 = new StringBuilder("HELLO");
+    public static String welcome(String nom) {
+        StringBuilder msgMinuscule = new StringBuilder("Hello");
+        StringBuilder msgMajuscule = new StringBuilder("HELLO");
         if(nom == null || nom.trim().equals("")){
-            msg1.append(", my friend");
+            msgMinuscule.append(", my friend");
+        } else{
+            trouveNoms(msgMinuscule,msgMajuscule ,nom);
         }
-        else{
-            trouveNoms(msg1,msg2 ,nom);
-        }
-        if (msg1.length() <= 5 ){
-            return msg2.toString();
-        } else if (msg2.length() <= 7 ) {
-            return msg1.toString();
+        return phrase(msgMinuscule, msgMajuscule);
+    }
+
+    private static String phrase(StringBuilder msgMinuscule, StringBuilder msgMajuscule) {
+        if (msgMinuscule.length() <= 5 ){
+            return msgMajuscule.toString();
+        } else if (msgMajuscule.length() <= 7 ) {
+            return msgMinuscule.toString();
         }else{
-            return msg1.toString() + ".AND " + msg2.toString();
+            return msgMinuscule + ". AND " + msgMajuscule;
         }
     }
 
-    private static void ajouterNoms(StringBuilder msg1 , String nom){
-            msg1.append(", ");
-            msg1.append(nom.substring(0, 1).toUpperCase()).append(nom.substring(1));
+
+    private static void ajouterNoms(StringBuilder msg , String nom){
+            msg.append(", ");
+            msg.append(nom.substring(0, 1).toUpperCase()).append(nom.substring(1));
     }
-    private static void trouveNoms(StringBuilder msg1 ,StringBuilder msg2, String chainedenom ){
+
+
+    private static void trouveNoms(StringBuilder msgMinuscule ,StringBuilder msgMajuscule, String chainedenom ){
         String[] noms = chainedenom.split(",");
-        for(int i = 0; i < noms.length ;i++){
-            if (noms[i].toUpperCase().equals(noms[i])) {
-                ajouterNoms(msg2, noms[i]);
+        for (String nom : noms) {
+            if (nom.toUpperCase().equals(nom)) {
+                ajouterNoms(msgMajuscule, nom);
             } else {
-                ajouterNoms(msg1,noms[i]);
+                ajouterNoms(msgMinuscule, nom);
             }
         }
-        msg2.append(" !");
+        msgMajuscule.append(" !");
     }
 }
