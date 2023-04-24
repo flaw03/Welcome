@@ -50,4 +50,15 @@ class WelcomeTest {
         assertEquals(Welcome.welcome("AMY,BOB,Jerry,theo"),"Hello, Jerry and Theo. AND HELLO, AMY AND BOB !");
     }
 
+    @Test
+    void suppresion_des_espace(){
+        assertEquals(Welcome.welcome("amy    ,bob         "),"Hello, Amy and Bob.");
+        assertEquals(Welcome.welcome("   THEO,AMY    ,BOB         "),"HELLO, THEO, AMY AND BOB !");
+        assertEquals(Welcome.welcome("   theo,amy    ,bob         "),"Hello, Theo, Amy and Bob.");
+        assertEquals(Welcome.welcome("   THEO,amy    ,bob         "),"Hello, Amy and Bob. AND HELLO, THEO !");
+        assertEquals(Welcome.welcome("   THEO,AMY    ,bob         "),"Hello, Bob. AND HELLO, THEO AND AMY !");
+        assertEquals(Welcome.welcome("   THEO,AMY    ,bob         ,jeremy"),"Hello, Bob and Jeremy. AND HELLO, THEO AND AMY !");
+        assertEquals(Welcome.welcome("   THEO,AMY    ,bob         ,   jeremy"),"Hello, Bob and Jeremy. AND HELLO, THEO AND AMY !");
+    }
+
 }

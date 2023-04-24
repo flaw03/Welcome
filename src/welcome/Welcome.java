@@ -27,11 +27,15 @@ public class Welcome {
 
 
     private static void ajouterNoms(StringBuilder msg , String nom){
+
             msg.append(", ");
             msg.append(nomMajuscule(nom));
     }
 
+
+
     private static String nomMajuscule(String nom){
+        nom = nom.trim();
         return  nom.substring(0, 1).toUpperCase() + nom.substring(1) ;
     }
 
