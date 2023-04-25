@@ -54,11 +54,22 @@ class WelcomeTest {
     void suppresion_des_espace(){
         assertEquals(Welcome.welcome("amy    ,bob         "),"Hello, Amy and Bob.");
         assertEquals(Welcome.welcome("   THEO,AMY    ,BOB         "),"HELLO, THEO, AMY AND BOB !");
-        assertEquals(Welcome.welcome("   theo,amy    ,bob         "),"Hello, Theo, Amy and Bob.");
+        assertEquals(Welcome.welcome(" theo,amy    ,bob         "),"Hello, Theo, Amy and Bob.");
         assertEquals(Welcome.welcome("   THEO,amy    ,bob         "),"Hello, Amy and Bob. AND HELLO, THEO !");
         assertEquals(Welcome.welcome("   THEO,AMY    ,bob         "),"Hello, Bob. AND HELLO, THEO AND AMY !");
         assertEquals(Welcome.welcome("   THEO,AMY    ,bob         ,jeremy"),"Hello, Bob and Jeremy. AND HELLO, THEO AND AMY !");
         assertEquals(Welcome.welcome("   THEO,AMY    ,bob         ,   jeremy"),"Hello, Bob and Jeremy. AND HELLO, THEO AND AMY !");
+    }
+
+    @Test
+    void nom_apprairer_plusieur_fois(){
+        assertEquals(Welcome.welcome("assane,assane"),"Hello, Assane (x2).");
+        assertEquals(Welcome.welcome("assane,assane,assane"),"Hello, Assane (x3).");
+        assertEquals(Welcome.welcome("AMY,AMY"),"HELLO, AMY (x2) !");
+        assertEquals(Welcome.welcome("AMY,AMY,amy"),"Hello, Amy. AND HELLO, AMY (x2) !");
+        assertEquals(Welcome.welcome("amy,BOB,BOB,amy"),"Hello, Amy (x2). AND HELLO, BOB (x2) !");
+        assertEquals(Welcome.welcome("amy,BOB,jeremy,BOB,amy"),"Hello, Amy (x2) and Jeremy. AND HELLO, BOB (x2) !");
+        assertEquals(Welcome.welcome("amy,BOB,JEREMY,BOB,amy"),"Hello, Amy (x2). AND HELLO, BOB (x2) AND JEREMY !");
     }
 
 }
