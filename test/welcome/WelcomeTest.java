@@ -31,6 +31,7 @@ class WelcomeTest {
     void deux_nom(){
         assertEquals(Welcome.welcome("assane,jeremy"),"Hello, Assane and Jeremy.");
         assertEquals(Welcome.welcome("amy,bob"),"Hello, Amy and Bob.");
+        assertEquals(Welcome.welcome("amy,"),"Hello, Amy.");
 
     }
 
@@ -39,6 +40,7 @@ class WelcomeTest {
         assertEquals(Welcome.welcome("amy,bob,jery"),"Hello, Amy, Bob and Jery.");
         assertEquals(Welcome.welcome("assane,jeremy,noah"),"Hello, Assane, Jeremy and Noah.");
         assertEquals(Welcome.welcome("assane,jeremy,noah,jery"),"Hello, Assane, Jeremy, Noah and Jery.");
+        assertEquals(Welcome.welcome("amy,   ,,,"),"Hello, Amy.");
 
     }
 
@@ -70,6 +72,16 @@ class WelcomeTest {
         assertEquals(Welcome.welcome("amy,BOB,BOB,amy"),"Hello, Amy (x2). AND HELLO, BOB (x2) !");
         assertEquals(Welcome.welcome("amy,BOB,jeremy,BOB,amy"),"Hello, Amy (x2) and Jeremy. AND HELLO, BOB (x2) !");
         assertEquals(Welcome.welcome("amy,BOB,JEREMY,BOB,amy"),"Hello, Amy (x2). AND HELLO, BOB (x2) AND JEREMY !");
+    }
+
+    @Test
+    void yoda_reverse(){
+        assertEquals(Welcome.welcome("assane,assane,yoda"),"Assane (x2) and Yoda, Hello.");
+        assertEquals(Welcome.welcome("assane,YODA"),"Hello, Assane. AND YODA, HELLO !");
+        assertEquals(Welcome.welcome("YODA"),"YODA, HELLO !");
+        assertEquals(Welcome.welcome("yoda"),"Yoda, Hello.");
+        assertEquals(Welcome.welcome("amy,BOB,jeremy,yoda,BOB,amy"),"Amy (x2), Jeremy and Yoda, Hello. AND HELLO, BOB (x2) !");
+        assertEquals(Welcome.welcome("amy,BOB,jeremy,YODA,BOB,amy"),"Hello, Amy (x2) and Jeremy. AND BOB (x2) AND YODA, HELLO !");
     }
 
 }
