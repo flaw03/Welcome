@@ -14,13 +14,13 @@ public class Welcome {
     private static int nbMaj = 0;
     private static int nbMin = 0;
 
-    public static String welcome(String nom) {
+    public static String welcome(String input) {
         msgMinuscule = new StringBuilder("Hello");
         msgMajuscule = new StringBuilder("HELLO");
-        if(nom == null || nom.trim().equals("")){
+        if(input == null || input.trim().equals("")){
             msgMinuscule.append(", my friend.");
         } else{
-            trierNoms(nom);
+            trierNoms(input);
             ajouterPonctuation();
         }
         return phrase(msgMinuscule, msgMajuscule);
